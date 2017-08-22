@@ -42,12 +42,6 @@
 					"description": "The memory used by the Cassandra service scheduler in Mb.",
 					"default": 2048
 				},
-				"scheduler_placement_constraint": {
-					"id": "http://cassandra/docs/mesosphere.com/service/scheduler_placement_constraint",
-					"type": "string",
-					"description": "scheduler placement constraint, on which host scheduler will run ",
-					"default": ""
-				},
 				"heap": {
 					"id": "http://cassandra/docs/mesosphere.com/service/heap",
 					"type": "integer",
