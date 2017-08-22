@@ -45,24 +45,24 @@
 				"scheduler_placement_constraint": {
 					"id": "http://cassandra/docs/mesosphere.com/service/scheduler_placement_constraint",
 					"type": "array",
-					      "items": {
-					      	"type": "array",
-					        "items": [
-					      	    {
-					      	        "type": "string"
-					      	     },
-					      	     {
-					      	        "type": "string",
-					      	        "enum": ["UNIQUE", "CLUSTER", "GROUP_BY", "LIKE", "UNLIKE", "MAX_PER"]
-					      	     },
-					      	     {
-					      	          "type": "string"
-					      	     }
-					      	],
-					      	"minItems": 2,
-					      	"additionalItems": false
-					      },
-					      "description": "Valid constraint operators are one of UNIQUE, CLUSTER, GROUP_BY, LIKE, UNLIKE, MAX_PER."
+					"items": {
+						"type": "array",
+						"items": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "string",
+								"enum": ["UNIQUE", "CLUSTER", "GROUP_BY", "LIKE", "UNLIKE", "MAX_PER"]
+							},
+							{
+								"type": "string"
+							}
+						],
+						"minItems": 2,
+						"additionalItems": false
+					},
+					"description": "Valid constraint operators are one of UNIQUE, CLUSTER, GROUP_BY, LIKE, UNLIKE, MAX_PER."
 				},
 				"heap": {
 					"id": "http://cassandra/docs/mesosphere.com/service/heap",
