@@ -154,7 +154,7 @@ public class ConfigValidator {
     });
 
     public Collection<ConfigValidation> validations = Arrays.asList(
-            serversValidation,
+           // serversValidation,
             seedValidation,
             diskTypeValidation,
             diskSizeValidation,

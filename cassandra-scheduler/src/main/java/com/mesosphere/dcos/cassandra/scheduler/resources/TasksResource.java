@@ -147,6 +147,35 @@ public class TasksResource {
         }
     }
 
+    @PUT
+    @Path("/remove")
+    public Response remove(@QueryParam("node") final String name)
+        throws Exception {
+        LOGGER.info("removing node {}", name);
+        Optional<CassandraDaemonTask> taskOption =
+            Optional.ofNullable(state.getDaemons().get(name));
+        if (taskOption.isPresent()) {
+            CassandraDaemonTask task = taskOption.get();
+            //final CassandraContainer movedContainer = state.moveCassandraContainer(task);
+            //state.update(movedContainer.getDaemonTask());
+            //state.update(movedContainer.getClusterTemplateTask());
+
+//            for (Protos.TaskInfo taskInfo : movedContainer.getTaskInfos()) {
+//                state.update(Protos.TaskStatus.newBuilder()
+//                        .setState(Protos.TaskState.TASK_FAILED)
+//                        .setTaskId(taskInfo.getTaskId())
+//                        .build());
+//            }
+            state.remove(task.getName());
+
+            LOGGER.info("Demon has been removed");
+            CassandraScheduler.getTaskKiller().killTask(task.getName(), true);
+            return killResponse(Arrays.asList(task.getTaskInfo().getTaskId().getValue()));
+        } else {
+            return Response.serverError().build();
+        }
+    }
+
     /**
      * Deprecated. See {@code ConnectionResource}.
      */
