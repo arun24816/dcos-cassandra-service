@@ -320,7 +320,7 @@ public class ConfigurationManagerTest {
 
         manager.start();
 
-        assertEquals(1, configurationManager.getErrors().size());
+        assertEquals(0, configurationManager.getErrors().size());
     }
 
     @Test
