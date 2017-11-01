@@ -186,6 +186,23 @@ server:
   connector:
     type: http
     port: ${API_PORT:-8080}
+    headerCacheSize: 512 bytes
+    outputBufferSize: 32KiB
+    maxRequestHeaderSize: 8KiB
+    maxResponseHeaderSize: 8KiB
+    inputBufferSize: 8KiB
+    idleTimeout: 30 seconds
+    minBufferPoolSize: 64 bytes
+    bufferPoolIncrement: 1KiB
+    maxBufferPoolSize: 64KiB
+    acceptorThreads: 1
+    selectorThreads: 2
+    acceptQueueSize: 1024
+    reuseAddress: true
+    soLingerTime: 345s
+    useServerHeader: false
+    useDateHeader: true
+    useForwardedHeaders: true
 logging:
   level: ${LOG_LEVEL:-INFO}
   appenders:
